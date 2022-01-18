@@ -46,10 +46,10 @@ app.put("/transaction/:index", (req, res) => {
 		return;
 	}
 	// we are destructuring the req that is coming ..
-	let { data, name, amount, from } = req.body;
-	if (data && name && from && amount) {
+	const { date, name, amount, from } = req.body;
+	if (date && name && from && amount) {
 		transaction[index] = {
-			data,
+			date,
 			name,
 			amount,
 			from,
