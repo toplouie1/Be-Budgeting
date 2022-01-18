@@ -2,13 +2,13 @@ module.exports = [
 	{
 		date: "April 1",
 		name: "Top",
-		Amount: 800,
+		amount: 800,
 		from: "Work",
 	},
 	{
 		date: "january",
 		name: "Bottom",
-		Amount: -100,
+		amount: -100,
 		from: "Home",
 	},
 ];

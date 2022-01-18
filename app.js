@@ -39,4 +39,29 @@ app.delete("/transaction/:index", (req, res) => {
 	res, json(transaction.splice(req.params.index, 1));
 });
 
+// to edit something from your list
+app.put("/transaction/:index", (req, res) => {
+	const { index } = req.params;
+	// guard clause
+	if (!transaction[index]) {
+		res.status(422).json({ error: "Not found" });
+		return;
+	}
+	// we are destructuring the req that is coming ..
+	let { data, name, amount, from } = req.body;
+	if (data && name && from && amount) {
+		transaction[index] = {
+			data,
+			name,
+			amount,
+			from,
+		};
+		res.json(app[index]);
+	} else {
+		res.status(422).json({
+			error: "Invalid inputs",
+		});
+	}
+});
+
 module.exports = app;
