@@ -26,17 +26,15 @@ app.get("/transaction/:index", (req, res) => {
 });
 
 // creating a post adding a data at the end
-app.post(
-	("/transaction",
-	(req, res) => {
-		transaction.push(req.body);
-		res.json(transaction[transaction.length - 1]);
-	})
-);
+app.post("/transaction", (req, res) => {
+	transaction.push(req.body);
+	res.json(transaction[transaction.length - 1]);
+});
 
 // to delete something from a perticular index
 app.delete("/transaction/:index", (req, res) => {
-	res, json(transaction.splice(req.params.index, 1));
+	const { index } = req.params;
+	res.json(transaction.splice(index, 1));
 });
 
 // to edit something from your list
@@ -56,7 +54,7 @@ app.put("/transaction/:index", (req, res) => {
 			amount,
 			from,
 		};
-		res.json(app[index]);
+		res.json(transaction[index]);
 	} else {
 		res.status(422).json({
 			error: "Invalid inputs",
