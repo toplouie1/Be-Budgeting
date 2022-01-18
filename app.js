@@ -25,4 +25,18 @@ app.get("/transaction/:index", (req, res) => {
 	transaction[index] ? res.send(transaction[index]) : res.redirect(404);
 });
 
+// creating a post adding a data at the end
+app.post(
+	("/transaction",
+	(req, res) => {
+		transaction.push(req.body);
+		res.json(transaction[transaction.length - 1]);
+	})
+);
+
+// to delete something from a perticular index
+app.delete("/transaction/:index", (req, res) => {
+	res, json(transaction.splice(req.params.index, 1));
+});
+
 module.exports = app;
