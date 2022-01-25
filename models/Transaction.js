@@ -24,12 +24,6 @@ module.exports = [
 		from: "Shell Gas Station",
 	},
 	{
-		date: "April 6",
-		name: "Rent",
-		amount: -700,
-		from: "Pike International, LLC",
-	},
-	{
 		date: "April 8",
 		name: "Income",
 		amount: 2000,
